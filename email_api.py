@@ -3,7 +3,18 @@ import uvicorn
 
 app = FastAPI()
 
-@app.get("/my-first-api")
+@app.get("/my-first-api2")
+def hello(name = None):
+
+    if name is None:
+        text = 'Hello!'
+
+    else:
+        text = 'Hello ' + name + '!'
+
+    return text
+
+@app.post("/my-first-api")
 def hello(name = None):
 
     if name is None:
