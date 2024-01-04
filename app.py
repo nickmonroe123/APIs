@@ -72,11 +72,10 @@ class AddRecord(Resource):
         data = request.json
         print(data)
 
-        # Check if 'Book' and 'Rating' are present in the request body
-        if 'Book' not in data or 'Rating' not in data:
-            return {"message": "Bad request, missing 'Book' or 'Rating' in the request body"}, 400
-        # Call the add_record function to add the record to the DB table
-        success = book_review.add_record(data)
+        if data is not None:
+            success = True
+        else:
+            success = False
 
         if success:
             return {"message": "Record added successfully"}, 200
