@@ -36,9 +36,11 @@ class SendEmail(Resource):
         data = request.get_json()  # Get the request data
         name_from = data.get('name_from')
         email_from = data.get('email_from')
+        message_from = data.get('message_from')
+        subject_from = data.get('subject_from')
         send_email(
             subject="Hello, my name is " + name_from,
-            message="This email is from " + email_from,
+            message="This email is from " + email_from + ". Subject is " + subject_from + ". Message is "  + message_from,
             from_addr="nickmonroe1998@outlook.com",
             to_addr="nickmonroe1998@outlook.com",
             smtp_server="smtp-relay.brevo.com",
