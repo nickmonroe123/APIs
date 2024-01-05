@@ -1,10 +1,12 @@
 from flask import Flask, jsonify, request
 from flask_restful import Api, Resource
 from flasgger import Swagger
+from flask_cors import CORS
 
 app = Flask(__name__)
 api = Api(app)
 swagger = Swagger(app)
+CORS(app)  # This will enable CORS for all routes
 
 
 class SendEmail(Resource):
