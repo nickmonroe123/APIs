@@ -34,6 +34,7 @@ def send_email(subject, message, from_addr, to_addr, smtp_server, smtp_port, use
 class SendEmail(Resource):
     def post(self):
         data = request.get_json()  # Get the request data
+        print(data)
         # Here i pull the data points one at a time and make sure they arent empty
         name_from = data.get('name_from')
         print(name_from)
