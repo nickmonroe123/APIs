@@ -38,7 +38,7 @@ class SendEmail(Resource):
             message="This is a test email.",
             from_addr="nickmonroe1998@outlook.com",
             to_addr="nickmonroe1998@outlook.com",
-            smtp_server="smtp.outlook.com",
+            smtp_server="smtp-relay.brevo.com",
             smtp_port=587,
             username=os.getenv('EMAIL_USERNAME'),
             password=os.getenv('EMAIL_PASSWORD')
