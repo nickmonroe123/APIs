@@ -34,22 +34,17 @@ def send_email(subject, message, from_addr, to_addr, smtp_server, smtp_port, use
 class SendEmail(Resource):
     def post(self):
         data = request.get_json()  # Get the request data
-        print(data)
         # Here i pull the data points one at a time and make sure they arent empty
         name_from = data.get('name_from')
-        print(name_from)
         if name_from is None:
             name_from = ""
         email_from = data.get('email_from')
-        print(email_from)
         if email_from is None:
             email_from = ""
         message_from = data.get('message_from')
-        print(message_from)
         if message_from is None:
             message_from = ""
         subject_from = data.get('subject_from')
-        print(subject_from)
         if subject_from is None:
             subject_from = ""
         # Here is for sending out the records through Brevo as my SMTP source
