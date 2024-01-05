@@ -32,10 +32,13 @@ def send_email(subject, message, from_addr, to_addr, smtp_server, smtp_port, use
 
 
 class SendEmail(Resource):
-    def get(self):
+    def post(self):
+        data = request.get_json()  # Get the request data
+        name_from = data.get('name_from')
+        email_from = data.get('email_from')
         send_email(
-            subject="Hello!",
-            message="This is a test email.",
+            subject="Hello, my name is " + name_from,
+            message="This email is from " + email_from,
             from_addr="nickmonroe1998@outlook.com",
             to_addr="nickmonroe1998@outlook.com",
             smtp_server="smtp-relay.brevo.com",
